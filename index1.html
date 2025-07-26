@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de Kuromi - Amor al 100%</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url('22.png'); /* Fondo Kuromi */
+      background-size: cover;
+      background-position: center;
+      font-family: 'Comic Sans MS', cursive;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      color: #ffccf9;
+      text-shadow: 2px 2px #000;
+    }
+
+    #kuromi {
+      width: 200px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    #kuromi:hover {
+      transform: scale(1.1);
+    }
+
+    #progressContainer {
+      width: 80%;
+      height: 30px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid #ff69b4;
+    }
+
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background-color: #ff69b4;
+      transition: width 0.3s;
+    }
+
+    #mensajeFinal {
+      display: none;
+      background-color: #fff;
+      color: #a2006c;
+      padding: 30px;
+      border: 4px solid #ff1493;
+      border-radius: 20px;
+      width: 300px;
+      margin: 50px auto;
+      font-size: 22px;
+    }
+
+    #mensajeFinal button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #mensajeFinal button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Haz clic en Kuromi para llenar el amor 💖</h1>
+
+  <img src="kuromi.png" id="kuromi" alt="Kuromi">
+
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
+
+  <div id="mensajeFinal">
+    💘 ¿Quieres ser mi novia? 💘<br>
+    <button onclick="alert('¡Siii! 💖')">Sí</button>
+    <button onclick="alert('Tal vez luego 😢')">No</button>
+  </div>
+
+  <script>
+    const kuromi = document.getElementById('kuromi');
+    const progressBar = document.getElementById('progressBar');
+    const mensajeFinal = document.getElementById('mensajeFinal');
+
+    let porcentaje = 0;
+
+    kuromi.addEventListener('click', () => {
+      if (porcentaje < 100) {
+        porcentaje += 10;
+        if (porcentaje > 100) porcentaje = 100;
+        progressBar.style.width = porcentaje + '%';
+      }
+
+      if (porcentaje === 100) {
+        mensajeFinal.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
